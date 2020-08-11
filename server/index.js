@@ -20,17 +20,10 @@ const pgClient = new Pool({
     port: keys.pgPort,
 });
 
-console.log('Every time it\'s gonna try create table.')
-
 pgClient
     .query('CREATE TABLE IF NOT EXISTS values (number INT);')
-    .catch((err) => console.error(err));
+    .catch((err) => console.log(err));
 
-
-// pgClient.on('connect', (err) => {
-//     console.log('postgres connected event');
-
-// });
 
 // Redis Client Setup
 const redis = require('redis');
@@ -62,8 +55,6 @@ app.post('/values', async (req, res) => {
     const index = req.body.index;
 
     const maxIndex = 40;
-
-    console.log('send index = "' + index + '"');
     
     if (parseInt(index) > maxIndex || isNaN(parseInt(index))) {
         return res.status(422).send('Missing index or too high (index: ' + index +')');
