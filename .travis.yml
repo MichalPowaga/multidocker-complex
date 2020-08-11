@@ -1,4 +1,6 @@
-sudo: required
+language: minimal
+os: linux
+dist: xenial
 services:
     - docker
 
@@ -26,7 +28,7 @@ deploy:
     region: eu-west-1
     app: multi-docker-v2
     env: MultiDockerV2-env
-    bucket_name: elasticbeanstalk-eu-west-1-442152860333
+    bucket: elasticbeanstalk-eu-west-1-442152860333
     bucket_path: multi-docker
     on:
         branch: master
