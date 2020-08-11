@@ -5,7 +5,7 @@
             "name": "server",
             "image": "michalpowaga/multidocker-server",
             "hostname": "api",
-            "essential": false,
+            "essential": true,
             "memory": 128
         }
     ]
