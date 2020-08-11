@@ -14,7 +14,6 @@ after_success:
     - docker build -t michalpowaga/multidocker-server ./server
     - docker build -t michalpowaga/multidocker-worker ./worker
 
-after_success:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     - docker push michalpowaga/multidocker-client
     - docker push michalpowaga/multidocker-nginx
